@@ -1,4 +1,10 @@
-node {
-   echo 'Hello World'
-   logstashSend failBuild: true, maxLines: 1000
+pipeline {
+  stages {
+    stage('build') {
+      steps {
+        sh 'echo HELLO WORLD'
+        logstashSend failBuild: true, maxLines: 1000
+      }
+    }
+  }
 }
